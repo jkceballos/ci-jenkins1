@@ -33,7 +33,10 @@ services:
       - backend
 
   jenkins:
-    build: ./jenkins
+    build:
+      context: ./jenkins
+      args:
+        DOCKER_GID: 124
     ports:
       - "8081:8080"
       - "50000:50000"
