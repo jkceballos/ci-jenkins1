@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Frontend Demo</title>
+</head>
+<body>
+  <h1>Hola desde el Frontend</h1>
+  <div id="data"></div>
+  <script>
+    fetch('http://localhost:5000/items')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('data').innerText = JSON.stringify(data);
+      });
+  </script>
+</body>
+</html>
