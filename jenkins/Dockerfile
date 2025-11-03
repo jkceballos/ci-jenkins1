@@ -2,10 +2,10 @@ FROM jenkins/jenkins:lts
 
 USER root
 
-# Instala Docker dentro del contenedor
+# Instala Docker y Git
 RUN apt-get update && apt-get install -y docker.io git
 
-# Añade el usuario jenkins al grupo docker
-RUN usermod -aG docker jenkins
+# Crea el grupo docker con el mismo GID que el host
+RUN groupadd -g 124 docker && usermod -aG docker jenkins
 
 USER jenkins
